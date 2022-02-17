@@ -2,7 +2,7 @@
 using FluentValidation;
 using System;
 
-namespace BelezanaWeb.API.Validators
+namespace BelezanaWeb.Registers.Validators
 {
     public class ScheduleValidator : AbstractValidator<ScheduleViewModel>
     {

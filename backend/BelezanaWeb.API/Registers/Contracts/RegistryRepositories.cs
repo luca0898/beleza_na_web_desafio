@@ -9,6 +9,7 @@ namespace BelezanaWeb.Registers.Contracts.Repositories
         public static void Load(IServiceCollection services)
         {
             services.AddTransient<IScheduleRepository, ScheduleRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
     }
 }

@@ -19,7 +19,10 @@ namespace BelezanaWeb.Db.SQL
 
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new InventoryMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
             modelBuilder.ApplyConfiguration(new ScheduleMap());
+            modelBuilder.ApplyConfiguration(new WarehouseMap());
         }
     }
 }

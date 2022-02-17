@@ -13,7 +13,10 @@ namespace BelezanaWeb.Registers.Mapping
                 config.AllowNullCollections = true;
 
                 // Adding each profile
+                config.AddProfile<InventoryProfile>();
+                config.AddProfile<ProductProfile>();
                 config.AddProfile<ScheduleProfile>();
+                config.AddProfile<WarehouseProfile>();
                 // ...
             }).CreateMapper();
 
