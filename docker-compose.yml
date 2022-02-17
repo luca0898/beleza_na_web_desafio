@@ -1,5 +1,12 @@
 version: '3'
 
+volumes:
+  mssql:
+
+networks:
+  localdev:
+    name: localdev
+
 services:
   mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest
@@ -10,6 +17,13 @@ services:
       - "1433:1433"
     volumes:
       - mssql:/var/opt/mssql/data
-      
-volumes:
-  mssql:
+
+  belezana_web-api:
+    build: backend/
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - mssql
+    networks:
+      - localdev
