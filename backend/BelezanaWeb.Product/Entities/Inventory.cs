@@ -1,13 +1,14 @@
-﻿using BelezanaWeb.Product.Entities.Shared;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BelezanaWeb.Product.Entities
 {
     public class Inventory
     {
-        public int Quantity { get; set; }
+        public int Quantity
+        {
+            get { return Warehouses.Sum(w => w.Quantity); }
+        }
         public ICollection<Warehouse> Warehouses { get; set; }
-
-        public Product Product { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BelezanaWeb.Product.Entities;
-using BelezanaWeb.Product.ViewModel;
+using BelezanaWeb.Product.InputModel;
+using BelezanaWeb.Product.ViewModels;
 
 namespace BelezanaWeb.Registers.Mapping
 {
@@ -9,6 +10,7 @@ namespace BelezanaWeb.Registers.Mapping
         public InventoryProfile()
         {
             CreateMap<Inventory, InventoryViewModel>().ReverseMap();
+            CreateMap<Inventory, InventoryInputModel>().ReverseMap();
         }
     }
 }

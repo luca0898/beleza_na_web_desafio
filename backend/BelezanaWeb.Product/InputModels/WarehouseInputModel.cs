@@ -1,6 +1,6 @@
-﻿namespace BelezanaWeb.Product.ViewModel
+﻿namespace BelezanaWeb.Product.InputModel
 {
-    public class WarehouseViewModel
+    public class WarehouseInputModel
     {
         public string Locality { get; set; }
         public int Quantity { get; set; }

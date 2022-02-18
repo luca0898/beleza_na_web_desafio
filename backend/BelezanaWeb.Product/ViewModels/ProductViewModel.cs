@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace BelezanaWeb.Product.ViewModel
+namespace BelezanaWeb.Product.ViewModels
 {
     public class ProductViewModel
     {

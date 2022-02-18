@@ -1,11 +1,10 @@
-﻿using BelezanaWeb.Product.Entities.Shared;
-
-namespace BelezanaWeb.Product.Entities
+﻿namespace BelezanaWeb.Product.ViewModels
 {
-    public class Warehouse
+    public class WarehouseViewModel
     {
         public string Locality { get; set; }
         public int Quantity { get; set; }
         public string Type { get; set; }
     }
+
 }

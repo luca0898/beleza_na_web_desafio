@@ -11,7 +11,7 @@ namespace BelezanaWeb.Services.Shared
 {
     public abstract class GenericEntityService<TEntity> : IGenericEntityService<TEntity> where TEntity : class, IEntity
     {
-        protected readonly IGenericRepository<TEntity> _repository;
+        private readonly IGenericRepository<TEntity> _repository;
 
         public GenericEntityService(IGenericRepository<TEntity> TEntityRepository)
         {
