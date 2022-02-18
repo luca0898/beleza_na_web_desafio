@@ -44,7 +44,7 @@ namespace BelezanaWeb.Middlewares
 
                             await context.Response.WriteAsync(new ErrorResponseViewModel()
                             {
-                                Message = "Internal Server Error."
+                                Message = "Internal Server Error. Details:" + contextFeature.Error.Message
                             }.ToString());
                         }
                     }
