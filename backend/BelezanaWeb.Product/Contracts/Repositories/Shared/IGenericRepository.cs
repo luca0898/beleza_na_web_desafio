@@ -7,12 +7,11 @@ namespace BelezanaWeb.Product.Contracts.Repositories.Shared
 {
     public interface IGenericRepository<TEntity> where TEntity : class, IEntity
     {
-        Task<IEnumerable<TEntity>> FindAll(CancellationToken cancellationToken = default, int skip = 0, int take = 20);
-        Task<TEntity> FindOne(int id, CancellationToken cancellationToken = default);
-
-        Task<TEntity> Create(TEntity entity, CancellationToken cancellationToken = default);
-        Task<TEntity> Update(TEntity entity, CancellationToken cancellationToken = default);
-        Task SoftDelete(TEntity entity, CancellationToken cancellationToken = default);
+        Task CreateAsync(TEntity entity, CancellationToken cancellationToken = default);
+        IEnumerable<TEntity> FindAll(int skip = 0, int take = 20);
+        TEntity FindOne(string id, CancellationToken cancellationToken = default);
         Task HardDelete(TEntity entity, CancellationToken cancellationToken = default);
+        Task SoftDelete(TEntity entity, CancellationToken cancellationToken = default);
+        Task Update(TEntity entity, CancellationToken cancellationToken = default);
     }
 }

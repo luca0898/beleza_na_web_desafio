@@ -15,7 +15,6 @@ namespace BelezanaWeb.Registers.Mapping
                 // Adding each profile
                 config.AddProfile<InventoryProfile>();
                 config.AddProfile<ProductProfile>();
-                config.AddProfile<ScheduleProfile>();
                 config.AddProfile<WarehouseProfile>();
                 // ...
             }).CreateMapper();

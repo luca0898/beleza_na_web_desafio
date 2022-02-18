@@ -27,11 +27,11 @@ namespace BelezanaWeb.Controllers.Shared
         /// <returns></returns>
         [HttpGet, Route("")]
         [SwaggerOperation(OperationId = "{entity}GetAll")]
-        public async Task<IActionResult> GetAllAsync([FromQuery] int skip, [FromQuery] int take, CancellationToken cancellationToken)
+        public IActionResult GetAll([FromQuery] int skip, [FromQuery] int take)
         {
             take = (take <= 0) ? 50 : take;
 
-            IEnumerable<TEntity> entity = await _service.FindAllAsync(cancellationToken, skip, take);
+            IEnumerable<TEntity> entity = _service.FindAll(skip, take);
 
             IEnumerable<TOutputViewModel> entityView = _mapper.Map<IEnumerable<TOutputViewModel>>(entity);
 
@@ -42,13 +42,12 @@ namespace BelezanaWeb.Controllers.Shared
         /// Get one entity
         /// </summary>
         /// <param name="id">entity identifier</param>
-        /// <param name="cancellationToken"></param>
         /// <returns>The entity record</returns>
         [HttpGet, Route("{id}")]
         [SwaggerOperation(OperationId = "{entity}GetById")]
-        public async Task<IActionResult> GetAsync(int id, CancellationToken cancellationToken)
+        public IActionResult Get(string id)
         {
-            TEntity entity = await _service.GetOneAsync(id, cancellationToken);
+            TEntity entity = _service.GetOneAsync(id);
 
             TOutputViewModel entityView = _mapper.Map<TOutputViewModel>(entity);
 
@@ -64,13 +63,9 @@ namespace BelezanaWeb.Controllers.Shared
         [HttpPost, Route("")]
         public async Task<IActionResult> CreateAsync([FromBody] TInputViewModel model, CancellationToken cancellationToken)
         {
-            TEntity entity = _mapper.Map<TEntity>(model);
+            await _service.CreateAsync(_mapper.Map<TEntity>(model), cancellationToken);
 
-            TEntity newly = await _service.CreateAsync(entity, cancellationToken);
-
-            TOutputViewModel result = _mapper.Map<TOutputViewModel>(newly);
-
-            return Ok(new SuccessResponseViewModel<TOutputViewModel>(result));
+            return NoContent();
         }
 
         /// <summary>
@@ -81,15 +76,11 @@ namespace BelezanaWeb.Controllers.Shared
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPut, Route("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] int id, [FromBody] TInputViewModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateAsync([FromRoute] string id, [FromBody] TInputViewModel model, CancellationToken cancellationToken)
         {
-            TEntity entity = _mapper.Map<TEntity>(model);
+            await _service.UpdateAsync(id, _mapper.Map<TEntity>(model), cancellationToken);
 
-            TEntity updated = await _service.UpdateAsync(id, entity, cancellationToken);
-
-            TOutputViewModel entityView = _mapper.Map<TOutputViewModel>(updated);
-
-            return Ok(new SuccessResponseViewModel<TOutputViewModel>(entityView));
+            return NoContent();
         }
 
         /// <summary>
@@ -98,11 +89,11 @@ namespace BelezanaWeb.Controllers.Shared
         /// <param name="id">entity key</param>
         /// <param name="cancellationToken"></param>
         [HttpDelete, Route("{id}")]
-        public async Task<IActionResult> DeleteAsync([FromRoute] int id, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteAsync([FromRoute] string id, CancellationToken cancellationToken)
         {
             await _service.DeleteAsync(id, cancellationToken);
 
-            return Ok();
+            return NoContent();
         }
     }
 }

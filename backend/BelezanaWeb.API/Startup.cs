@@ -2,7 +2,6 @@ using BelezanaWeb.API.Middlewares;
 using BelezanaWeb.Middlewares;
 using BelezanaWeb.Registers;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -38,10 +37,10 @@ namespace BelezanaWeb
                 }
             });
 
-            LoadRegistrations.ConfigureContainers(services, Configuration);
+            LoadRegistrations.ConfigureContainers(services);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, ILoggerFactory logger)
         {
             app.UseMiddleware<RequestLoggingMiddleware>();
 

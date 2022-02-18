@@ -1,5 +1,5 @@
 ﻿using BelezanaWeb.Product.Contracts.Services;
-using BelezanaWeb.Service;
+using BelezanaWeb.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BelezanaWeb.Registers.Contracts.Services
@@ -8,7 +8,6 @@ namespace BelezanaWeb.Registers.Contracts.Services
     {
         public static void Load(IServiceCollection services)
         {
-            services.AddTransient<IScheduleService, ScheduleService>();
             services.AddTransient<IProductService, ProductService>();
         }
     }

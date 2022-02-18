@@ -2,7 +2,7 @@
 
 namespace BelezanaWeb.Product.Entities
 {
-    public class Warehouse : Entity
+    public class Warehouse
     {
         public string Locality { get; set; }
         public int Quantity { get; set; }

@@ -4,13 +4,11 @@ using BelezanaWeb.Services.Shared;
 using BelezanaWeb.SystemObjects;
 using BelezanaWeb.SystemObjects.Interfaces;
 
-namespace BelezanaWeb.Service
+namespace BelezanaWeb.Services
 {
     public class ProductService : GenericEntityService<Product.Entities.Product>, IProductService
     {
-        public ProductService(
-            IProductRepository productRepository,
-            IUnitOfWorkFactory<UnitOfWork> uow) : base(productRepository, uow)
+        public ProductService(IProductRepository productRepository) : base(productRepository)
         {
         }
     }

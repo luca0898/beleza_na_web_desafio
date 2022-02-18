@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BelezanaWeb.Product.Entities
 {
-    public class Inventory : Entity
+    public class Inventory
     {
         public int Quantity { get; set; }
         public ICollection<Warehouse> Warehouses { get; set; }
