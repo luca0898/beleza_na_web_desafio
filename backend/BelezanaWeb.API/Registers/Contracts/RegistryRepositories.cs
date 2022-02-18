@@ -1,4 +1,4 @@
-﻿using BelezanaWeb.Db.SQL.Repositories;
+﻿using BelezanaWeb.Db.NoSQL.Mongo.Repositories;
 using BelezanaWeb.Domain.Contracts.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

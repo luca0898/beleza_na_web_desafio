@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BelezanaWeb.Repositories\BelezanaWeb.Repository.Db.SQL\BelezanaWeb.Db.NoSQL.Mongo.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Repositories\BelezanaWeb.Repository.Db.NoSQL.Mongo\BelezanaWeb.Db.NoSQL.Mongo.csproj" />
     <ProjectReference Include="..\BelezanaWeb.Product\BelezanaWeb.Domain.csproj" />
     <ProjectReference Include="..\BelezanaWeb.Services\BelezanaWeb.Services.csproj" />
     <ProjectReference Include="..\BelezanaWeb.SystemObjects\BelezanaWeb.SystemObjects.csproj" />

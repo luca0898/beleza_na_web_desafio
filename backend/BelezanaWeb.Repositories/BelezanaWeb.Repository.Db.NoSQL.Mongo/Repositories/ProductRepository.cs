@@ -1,11 +1,11 @@
-﻿using BelezanaWeb.Db.SQL.Repositories.Shared;
+﻿using BelezanaWeb.Db.NoSQL.Mongo.Repositories.Shared;
 using BelezanaWeb.Domain.Contracts.Repositories;
 using BelezanaWeb.Domain.Entities;
 using MongoDB.Driver;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BelezanaWeb.Db.SQL.Repositories
+namespace BelezanaWeb.Db.NoSQL.Mongo.Repositories
 {
     public class ProductRepository : GenericNonRelationalRepository<Product>, IProductRepository
     {

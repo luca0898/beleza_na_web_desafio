@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BelezanaWeb.Db.SQL.Repositories.Shared
+namespace BelezanaWeb.Db.NoSQL.Mongo.Repositories.Shared
 {
     public abstract class GenericNonRelationalRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
     {
