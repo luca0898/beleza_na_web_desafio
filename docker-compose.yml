@@ -26,6 +26,6 @@ services:
     ports:
       - 5000:5000
     depends_on:
-      - mssql
+      - belezana_web_db
     networks:
       - localdev
