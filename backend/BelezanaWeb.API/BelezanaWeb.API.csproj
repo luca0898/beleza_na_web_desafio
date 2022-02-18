@@ -6,11 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.11" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
@@ -18,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BelezanaWeb.Repositories\BelezanaWeb.Repository.Db.SQL\BelezanaWeb.Db.NoSQL.Mongo.csproj" />
-    <ProjectReference Include="..\BelezanaWeb.Product\BelezanaWeb.Product.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Product\BelezanaWeb.Domain.csproj" />
     <ProjectReference Include="..\BelezanaWeb.Services\BelezanaWeb.Services.csproj" />
     <ProjectReference Include="..\BelezanaWeb.SystemObjects\BelezanaWeb.SystemObjects.csproj" />
   </ItemGroup>

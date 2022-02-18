@@ -1,5 +1,6 @@
-﻿using BelezanaWeb.Product.Contracts.Repositories;
-using BelezanaWeb.Product.Contracts.Services;
+﻿using BelezanaWeb.Domain.Contracts.Repositories;
+using BelezanaWeb.Domain.Contracts.Services;
+using BelezanaWeb.Domain.Entities;
 using BelezanaWeb.Services.Shared;
 using BelezanaWeb.SystemObjects.Exceptions;
 using System.Net;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BelezanaWeb.Services
 {
-    public class ProductService : GenericEntityService<Product.Entities.Product>, IProductService
+    public class ProductService : GenericEntityService<Product>, IProductService
     {
         private readonly IProductRepository _productRepository;
         public ProductService(IProductRepository productRepository) : base(productRepository)
@@ -16,7 +17,7 @@ namespace BelezanaWeb.Services
             _productRepository = productRepository;
         }
 
-        public override async Task CreateAsync(Product.Entities.Product entity, CancellationToken cancellationToken = default)
+        public override async Task CreateAsync(Product entity, CancellationToken cancellationToken = default)
         {
             var product = await _productRepository.GetBySkuAsync(entity.Sku, cancellationToken);
 
@@ -30,12 +31,12 @@ namespace BelezanaWeb.Services
             }
         }
 
-        public async Task<Product.Entities.Product> GetBySkuAsync(int sku, CancellationToken cancellationToken = default)
+        public async Task<Product> GetBySkuAsync(int sku, CancellationToken cancellationToken = default)
         {
             return await _productRepository.GetBySkuAsync(sku, cancellationToken);
         }
 
-        public async Task UpdateBySkuAsync(int sku, Product.Entities.Product modifiedEntity, CancellationToken cancellationToken = default)
+        public async Task UpdateBySkuAsync(int sku, Product modifiedEntity, CancellationToken cancellationToken = default)
         {
             var product = await _productRepository.GetBySkuAsync(sku, cancellationToken);
 

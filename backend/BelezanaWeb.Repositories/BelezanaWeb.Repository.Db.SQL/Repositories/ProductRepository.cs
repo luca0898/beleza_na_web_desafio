@@ -1,12 +1,13 @@
 ﻿using BelezanaWeb.Db.SQL.Repositories.Shared;
-using BelezanaWeb.Product.Contracts.Repositories;
+using BelezanaWeb.Domain.Contracts.Repositories;
+using BelezanaWeb.Domain.Entities;
 using MongoDB.Driver;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace BelezanaWeb.Db.SQL.Repositories
 {
-    public class ProductRepository : GenericNonRelationalRepository<Product.Entities.Product>, IProductRepository
+    public class ProductRepository : GenericNonRelationalRepository<Product>, IProductRepository
     {
         private const string CollectionName = "Products";
 
@@ -14,16 +15,16 @@ namespace BelezanaWeb.Db.SQL.Repositories
         {
         }
 
-        public async Task<Product.Entities.Product> GetBySkuAsync(int sku, CancellationToken cancellationToken = default)
+        public async Task<Product> GetBySkuAsync(int sku, CancellationToken cancellationToken = default)
         {
-            var filterBuilder = Builders<Product.Entities.Product>.Filter;
+            var filterBuilder = Builders<Product>.Filter;
 
-            FilterDefinition<Product.Entities.Product> filter = filterBuilder.And(
-                filterBuilder.Eq(nameof(Product.Entities.Product.Sku), sku),
-                filterBuilder.Eq(nameof(Product.Entities.Product.Deleted), false)
+            FilterDefinition<Product> filter = filterBuilder.And(
+                filterBuilder.Eq(nameof(Product.Sku), sku),
+                filterBuilder.Eq(nameof(Product.Deleted), false)
             );
 
-            IAsyncCursor<Product.Entities.Product> query = await _mongoCollection.FindAsync(filter, null, cancellationToken);
+            IAsyncCursor<Product> query = await _mongoCollection.FindAsync(filter, null, cancellationToken);
 
             return await query.FirstOrDefaultAsync(cancellationToken);
         }

@@ -1,6 +1,6 @@
-using BelezanaWeb.Product.Entities.Shared;
+using BelezanaWeb.Domain.Entities.Shared;
 
-namespace BelezanaWeb.Product.Entities
+namespace BelezanaWeb.Domain.Entities
 {
     public class Product : Entity
     {

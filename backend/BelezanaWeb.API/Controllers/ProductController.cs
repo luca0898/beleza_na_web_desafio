@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using BelezanaWeb.Product.Contracts.Services;
-using BelezanaWeb.Product.InputModel;
-using BelezanaWeb.Product.ViewModels;
+using BelezanaWeb.Domain.Contracts.Services;
+using BelezanaWeb.Domain.Entities;
+using BelezanaWeb.Domain.InputModel;
+using BelezanaWeb.Domain.ViewModels;
 using BelezanaWeb.SystemObjects.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,7 +27,7 @@ namespace BelezanaWeb.Controllers
         [SwaggerOperation(OperationId = "{entity}GetBySku")]
         public async Task<IActionResult> GetBySkuAsync(int sku)
         {
-            Product.Entities.Product entity = await _productService.GetBySkuAsync(sku);
+            Product entity = await _productService.GetBySkuAsync(sku);
 
             ProductViewModel entityView = _mapper.Map<ProductViewModel>(entity);
 
@@ -37,7 +37,7 @@ namespace BelezanaWeb.Controllers
         [HttpPost, Route("")]
         public async Task<IActionResult> CreateAsync([FromBody] ProductInputModel model, CancellationToken cancellationToken)
         {
-            await _productService.CreateAsync(_mapper.Map<Product.Entities.Product>(model), cancellationToken);
+            await _productService.CreateAsync(_mapper.Map<Product>(model), cancellationToken);
 
             return NoContent();
         }
@@ -45,7 +45,7 @@ namespace BelezanaWeb.Controllers
         [HttpPut, Route("{sku}")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int sku, [FromBody] ProductInputModel model, CancellationToken cancellationToken)
         {
-            var modifiedEntity = _mapper.Map<Product.Entities.Product>(model);
+            var modifiedEntity = _mapper.Map<Product>(model);
 
             await _productService.UpdateBySkuAsync(sku, modifiedEntity, cancellationToken);
 

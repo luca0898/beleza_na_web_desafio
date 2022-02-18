@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BelezanaWeb.Product.InputModel
+namespace BelezanaWeb.Domain.InputModel
 {
     public class InventoryInputModel
     {

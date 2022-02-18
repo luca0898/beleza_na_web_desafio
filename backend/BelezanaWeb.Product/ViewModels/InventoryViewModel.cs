@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BelezanaWeb.Product.ViewModels
+namespace BelezanaWeb.Domain.ViewModels
 {
     public class InventoryViewModel
     {

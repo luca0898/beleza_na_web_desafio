@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.Serialization;
-
-namespace BelezanaWeb.Product.InputModel
+﻿namespace BelezanaWeb.Domain.InputModel
 {
     public class ProductInputModel
     {

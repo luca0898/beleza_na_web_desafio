@@ -1,8 +1,8 @@
-﻿using BelezanaWeb.Product.Contracts.Shared;
+﻿using BelezanaWeb.Domain.Contracts.Shared;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace BelezanaWeb.Product.Entities.Shared
+namespace BelezanaWeb.Domain.Entities.Shared
 {
     public class Entity : IEntity
     {

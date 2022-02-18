@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BelezanaWeb.Product\BelezanaWeb.Product.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Product\BelezanaWeb.Domain.csproj" />
     <ProjectReference Include="..\BelezanaWeb.SystemObjects\BelezanaWeb.SystemObjects.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
-﻿using BelezanaWeb.Product.Contracts.Repositories.Shared;
-using BelezanaWeb.Product.Contracts.Shared;
+﻿using BelezanaWeb.Domain.Contracts.Repositories.Shared;
+using BelezanaWeb.Domain.Contracts.Shared;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;

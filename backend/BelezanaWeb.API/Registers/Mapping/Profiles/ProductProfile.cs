@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using BelezanaWeb.Product.InputModel;
-using BelezanaWeb.Product.ViewModels;
+using BelezanaWeb.Domain.Entities;
+using BelezanaWeb.Domain.InputModel;
+using BelezanaWeb.Domain.ViewModels;
 
 namespace BelezanaWeb.Registers.Mapping
 {
@@ -8,8 +9,8 @@ namespace BelezanaWeb.Registers.Mapping
     {
         public ProductProfile()
         {
-            CreateMap<Product.Entities.Product, ProductViewModel>().ReverseMap();
-            CreateMap<Product.Entities.Product, ProductInputModel>().ReverseMap();
+            CreateMap<Product, ProductViewModel>().ReverseMap();
+            CreateMap<Product, ProductInputModel>().ReverseMap();
         }
     }
 }

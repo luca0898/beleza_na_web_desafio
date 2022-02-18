@@ -1,9 +1,9 @@
-﻿using BelezanaWeb.Product.Contracts.Shared;
+﻿using BelezanaWeb.Domain.Contracts.Shared;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BelezanaWeb.Product.Contracts.Services.Shared
+namespace BelezanaWeb.Domain.Contracts.Services.Shared
 {
     public interface IGenericEntityService<TEntity> where TEntity : IEntity
     {

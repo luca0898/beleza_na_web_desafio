@@ -1,9 +1,9 @@
-﻿using BelezanaWeb.Product.Contracts.Shared;
+﻿using BelezanaWeb.Domain.Contracts.Shared;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BelezanaWeb.Product.Contracts.Repositories.Shared
+namespace BelezanaWeb.Domain.Contracts.Repositories.Shared
 {
     public interface IGenericRepository<TEntity> where TEntity : class, IEntity
     {

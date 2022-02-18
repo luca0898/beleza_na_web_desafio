@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.Serialization;
-
-namespace BelezanaWeb.Product.ViewModels
+﻿namespace BelezanaWeb.Domain.ViewModels
 {
     public class ProductViewModel
     {

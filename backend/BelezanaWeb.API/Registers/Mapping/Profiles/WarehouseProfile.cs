@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BelezanaWeb.Product.Entities;
-using BelezanaWeb.Product.InputModel;
-using BelezanaWeb.Product.ViewModels;
+using BelezanaWeb.Domain.Entities;
+using BelezanaWeb.Domain.InputModel;
+using BelezanaWeb.Domain.ViewModels;
 
 namespace BelezanaWeb.Registers.Mapping
 {

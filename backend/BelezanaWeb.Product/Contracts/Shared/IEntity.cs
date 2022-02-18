@@ -1,4 +1,4 @@
-﻿namespace BelezanaWeb.Product.Contracts.Shared
+﻿namespace BelezanaWeb.Domain.Contracts.Shared
 {
     public interface IEntity
     {

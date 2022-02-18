@@ -1,5 +1,5 @@
 ﻿using BelezanaWeb.Db.SQL.Repositories;
-using BelezanaWeb.Product.Contracts.Repositories;
+using BelezanaWeb.Domain.Contracts.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BelezanaWeb.Registers.Contracts.Repositories

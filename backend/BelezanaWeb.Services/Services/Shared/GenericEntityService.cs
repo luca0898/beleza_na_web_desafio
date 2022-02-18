@@ -1,6 +1,6 @@
-﻿using BelezanaWeb.Product.Contracts.Repositories.Shared;
-using BelezanaWeb.Product.Contracts.Services.Shared;
-using BelezanaWeb.Product.Contracts.Shared;
+﻿using BelezanaWeb.Domain.Contracts.Repositories.Shared;
+using BelezanaWeb.Domain.Contracts.Services.Shared;
+using BelezanaWeb.Domain.Contracts.Shared;
 using BelezanaWeb.SystemObjects.Exceptions;
 using System.Collections.Generic;
 using System.Net;

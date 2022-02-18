@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BelezanaWeb.Product.Entities
+namespace BelezanaWeb.Domain.Entities
 {
     public class Inventory
     {

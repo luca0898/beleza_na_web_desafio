@@ -1,4 +1,4 @@
-﻿using BelezanaWeb.Product.Contracts.Services;
+﻿using BelezanaWeb.Domain.Contracts.Services;
 using BelezanaWeb.Services;
 using Microsoft.Extensions.DependencyInjection;
 
