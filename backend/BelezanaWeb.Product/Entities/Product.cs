@@ -9,7 +9,7 @@ namespace BelezanaWeb.Domain.Entities
         public Inventory Inventory { get; set; }
         public bool IsMarketable
         {
-            get { return Inventory.Quantity > 0; }
+            get { return Inventory != null && Inventory.Quantity > 0; }
         }
     }
 }

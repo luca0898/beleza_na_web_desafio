@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.SYSTEM_OBJECTS", "0.SYSTE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BelezanaWeb.SystemObjects", "BelezanaWeb.SystemObjects\BelezanaWeb.SystemObjects.csproj", "{9B5D4E58-F51B-4ABF-B7B7-CC16D003E471}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.TESTS", "5.TESTS", "{1D3A887F-C41E-42DF-969D-8BC1F80555DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezanaWeb.Tests.Unit", "BelezanaWeb.Tests\BelezanaWeb.Tests.Unit\BelezanaWeb.Tests.Unit.csproj", "{FAB807F1-6B0F-4E71-BEDA-178225620E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{9B5D4E58-F51B-4ABF-B7B7-CC16D003E471}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B5D4E58-F51B-4ABF-B7B7-CC16D003E471}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B5D4E58-F51B-4ABF-B7B7-CC16D003E471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB807F1-6B0F-4E71-BEDA-178225620E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB807F1-6B0F-4E71-BEDA-178225620E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB807F1-6B0F-4E71-BEDA-178225620E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB807F1-6B0F-4E71-BEDA-178225620E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{39CB5F7A-59DD-45EA-AD7E-27A43C40CC33} = {C15B01EC-2E96-4852-A84B-7925D27FA1A6}
 		{B798CDEE-C49D-4E67-ACFD-F401DEDD2B46} = {3E803361-25FF-47FA-81DB-6EBADAE12DA3}
 		{9B5D4E58-F51B-4ABF-B7B7-CC16D003E471} = {F512918C-8424-481B-875C-022607DBDE48}
+		{FAB807F1-6B0F-4E71-BEDA-178225620E95} = {1D3A887F-C41E-42DF-969D-8BC1F80555DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48AF967F-1617-47CA-8917-3C61CA8746BA}

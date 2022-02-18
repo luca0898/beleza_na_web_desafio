@@ -1,22 +1,24 @@
 version: '3'
 
 volumes:
-  mssql:
+  belezana_web_db:
 
 networks:
   localdev:
     name: localdev
 
 services:
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2017-latest
+  mongodb_container:
+    image: mongo:latest
     environment:
-      - SA_PASSWORD=SenhaBelezanaWeb1234
-      - ACCEPT_EULA=Y
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
     ports:
-      - "1433:1433"
+      - 27017:27017
     volumes:
-      - mssql:/var/opt/mssql/data
+      - belezana_web_db:/data/db
+    networks:
+      - localdev
 
   belezana_web-api:
     build: backend/
