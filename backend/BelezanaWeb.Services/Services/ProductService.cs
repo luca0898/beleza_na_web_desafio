@@ -1,8 +1,8 @@
 ﻿using BelezanaWeb.Product.Contracts.Repositories;
 using BelezanaWeb.Product.Contracts.Services;
 using BelezanaWeb.Services.Shared;
-using System;
-using BelezanaWeb.SystemObjects.Interfaces;
+using BelezanaWeb.SystemObjects.Exceptions;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,9 +16,54 @@ namespace BelezanaWeb.Services
             _productRepository = productRepository;
         }
 
+        public override async Task CreateAsync(Product.Entities.Product entity, CancellationToken cancellationToken = default)
+        {
+            var product = await _productRepository.GetBySkuAsync(entity.Sku, cancellationToken);
+
+            if (product == null || product.Deleted)
+            {
+                await base.CreateAsync(entity, cancellationToken);
+            }
+            else
+            {
+                throw new BelezanaWebApplicationException($"Produto com SKU {entity.Sku} já existe!", HttpStatusCode.BadRequest);
+            }
+        }
+
         public async Task<Product.Entities.Product> GetBySkuAsync(int sku, CancellationToken cancellationToken = default)
         {
             return await _productRepository.GetBySkuAsync(sku, cancellationToken);
         }
+
+        public async Task UpdateBySkuAsync(int sku, Product.Entities.Product modifiedEntity, CancellationToken cancellationToken = default)
+        {
+            var product = await _productRepository.GetBySkuAsync(sku, cancellationToken);
+
+            if (product == null)
+            {
+                throw new BelezanaWebApplicationException($"Produto com SKU {sku} não foi encontrado!", HttpStatusCode.NotFound);
+            }
+
+            modifiedEntity.Id = product.Id;
+
+            await _productRepository.Update(modifiedEntity, cancellationToken);
+        }
+
+        public async Task DeleteBySkuAsync(int sku, CancellationToken cancellationToken = default)
+        {
+            var product = await _productRepository.GetBySkuAsync(sku, cancellationToken);
+
+            // if it does not exist or is flagged as deleted
+            if (product == null || product.Deleted)
+            {
+                throw new BelezanaWebApplicationException($"Produto com SKU {sku} não foi encontrado!", HttpStatusCode.NotFound);
+            }
+
+            // flag product as deleted
+            product.Deleted = true;
+
+            await _productRepository.Update(product, cancellationToken);
+        }
     }
 }
+

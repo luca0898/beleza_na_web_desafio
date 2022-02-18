@@ -19,12 +19,12 @@ namespace BelezanaWeb.Db.SQL.Repositories.Shared
             _mongoCollection = _mongoDatabase.GetCollection<TEntity>(collectionName);
         }
 
-        public async Task CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             await _mongoCollection.InsertOneAsync(entity, null, cancellationToken);
         }
 
-        public IEnumerable<TEntity> FindAll(int skip = 0, int take = 20)
+        public virtual IEnumerable<TEntity> FindAll(int skip = 0, int take = 20)
         {
             return _mongoCollection
                 .AsQueryable()
@@ -35,19 +35,19 @@ namespace BelezanaWeb.Db.SQL.Repositories.Shared
                 .ToList();
         }
 
-        public TEntity FindOne(string id, CancellationToken cancellationToken = default)
+        public virtual TEntity FindOne(string id, CancellationToken cancellationToken = default)
         {
             return _mongoCollection
                 .AsQueryable()
                 .FirstOrDefault((entity) => entity.Id == id);
         }
 
-        public async Task HardDelete(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task HardDelete(TEntity entity, CancellationToken cancellationToken = default)
         {
             await _mongoCollection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("Id", entity.Id), new DeleteOptions { }, cancellationToken);
         }
 
-        public async Task SoftDelete(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task SoftDelete(TEntity entity, CancellationToken cancellationToken = default)
         {
             var filter = Builders<TEntity>.Filter.Eq("Id", entity.Id);
             var update = Builders<TEntity>.Update.Set("Deleted", false);
@@ -55,7 +55,7 @@ namespace BelezanaWeb.Db.SQL.Repositories.Shared
             await _mongoCollection.UpdateOneAsync(filter, update, null, cancellationToken);
         }
 
-        public async Task Update(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task Update(TEntity entity, CancellationToken cancellationToken = default)
         {
             await _mongoCollection.ReplaceOneAsync(
                 Builders<TEntity>.Filter.Eq("Id", entity.Id),

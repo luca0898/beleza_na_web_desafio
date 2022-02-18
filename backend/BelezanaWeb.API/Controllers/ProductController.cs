@@ -42,18 +42,20 @@ namespace BelezanaWeb.Controllers
             return NoContent();
         }
 
-        [HttpPut, Route("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] string id, [FromBody] ProductInputModel model, CancellationToken cancellationToken)
+        [HttpPut, Route("{sku}")]
+        public async Task<IActionResult> UpdateAsync([FromRoute] int sku, [FromBody] ProductInputModel model, CancellationToken cancellationToken)
         {
-            await _productService.UpdateAsync(id, _mapper.Map<Product.Entities.Product>(model), cancellationToken);
+            var modifiedEntity = _mapper.Map<Product.Entities.Product>(model);
+
+            await _productService.UpdateBySkuAsync(sku, modifiedEntity, cancellationToken);
 
             return NoContent();
         }
 
-        [HttpDelete, Route("{id}")]
-        public async Task<IActionResult> DeleteAsync([FromRoute] string id, CancellationToken cancellationToken)
+        [HttpDelete, Route("{sku}")]
+        public async Task<IActionResult> DeleteAsync([FromRoute] int sku, CancellationToken cancellationToken)
         {
-            await _productService.DeleteAsync(id, cancellationToken);
+            await _productService.DeleteBySkuAsync(sku, cancellationToken);
 
             return NoContent();
         }
